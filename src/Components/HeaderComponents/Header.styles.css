@@ -1,0 +1,8 @@
+img{
+    width : 100px;
+    height : 30px;
+    background-color:233D53 ;
+}
+.navbar-default{
+    background-image: linear-gradient(to right,#0077C1,#233D53);
+}

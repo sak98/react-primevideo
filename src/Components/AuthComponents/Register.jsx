@@ -8,7 +8,7 @@ class RegisterComponent extends Component {
     render() { 
         return ( 
             <Fragment>
-                RegisterComponent
+                    
             </Fragment>
          );
     }

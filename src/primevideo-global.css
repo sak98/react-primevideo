@@ -6,7 +6,7 @@ body,html {
   background: #eee;
   font-family: "Poppins", sans-serif;  
   background-image:
-    linear-gradient(to right,rgb(0, 0, 0),rgba(0, 0, 0, 0)),url("https://www.wallpaperup.com/uploads/wallpapers/2013/06/11/101184/4e05a354730a89c7170d2a0d3b8092e2-700.jpg");
+    linear-gradient(to right,#000 40%,transparent 58%),url("https://m.media-amazon.com/images/G/31/AmazonVideo/2019/1102620_MLP_1440x675_apv189_V3._SY1200_FMJPG_.jpg");
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;

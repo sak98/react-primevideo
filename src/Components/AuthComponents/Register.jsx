@@ -15,15 +15,29 @@ class RegisterComponent extends Component {
             confirm_password : "",
          }
          this.handleChange = this.handleChange.bind(this);
-         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.passValidate = this.passValidate.bind(this);
     }
+
     handleChange(e){
       
         this.setState({[e.target.name]: e.target.value});
     }
 
+    passValidate(){
+      
+    
+      
+    }
+    
     async handleSubmit(e){
         
+      if(this.state.password != this.state.confirm_password){
+        let warning = "Passwords do not match Please verify"
+        toast.warning(warning);
+        this.props.history.push('/');
+      }
+      else{
         try{
           e.preventDefault();
         let{email,password,username} = this.state;
@@ -57,6 +71,8 @@ class RegisterComponent extends Component {
             toast.error(err.message);
 
         }
+      }
+
     }
 
     render() { 
@@ -118,7 +134,7 @@ class RegisterComponent extends Component {
                       />
                     </div>
                     <div className="form-group">
-                      <button className="a-button-primary btn-block my-4">
+                      <button  className="a-button-primary btn-block my-4">
                         create your amazon account
                       </button>
                     </div>

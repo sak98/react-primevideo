@@ -2,6 +2,7 @@ import React, { Component,Fragment } from 'react';
 import HeaderCompoent from "./Components/HeaderComponents/HeaderComponent"
 import {BrowserRouter as Router,Route,Switch,withRouter} from "react-router-dom"
 import HomeComponent from "./Components/HomeComponent/Home";
+import { ToastContainer } from "react-toastify";
 import LoginComponent from "./Components/AuthComponents/Login";
 import PasswordReset from "./Components/AuthComponents/PasswordReset";
 import RegisterComponent from "./Components/AuthComponents/Register";
@@ -11,29 +12,28 @@ class App extends Component {
         super(props);
         this.state = {  }
     }
-    render() { 
-        return ( 
-            <Fragment>                
-                <Router>
-                    <header>
-                        <HeaderCompoent/>
-                    </header>
-
-                <main className="container">
-                    <Switch>
-                    <Route path="/" exact component={HomeComponent}  />
-                    <Route path="/Login" exact component={LoginComponent}/>
-                    <Route  path="/Register" exact component={RegisterComponent} />
-                    <Route  path="/PasswordReset" exact component={PasswordReset} />
-                    <Route path= "*"  component={PageNotFound} />   
-                    </Switch>              
-                </main>      
-
-                </Router>
-                
-            </Fragment>
-         );
-    }
+    render() {
+        return (
+          <Fragment>
+            <Router>
+              <header>
+                <HeaderCompoent />
+              </header>
+              <ToastContainer />
+              <main>
+                <Switch>
+                  <Route path="/" exact component={HomeComponent} />
+    
+                  <Route path="/login" exact component={LoginComponent} />
+                  <Route path="/register" exact component={RegisterComponent} />
+                  <Route path="/password-reset" exact component={PasswordReset} />
+                  <Route path="**" component={PageNotFound} />
+                </Switch>
+              </main>
+            </Router>
+          </Fragment>
+        );
+      }
 }
  
 export default App;

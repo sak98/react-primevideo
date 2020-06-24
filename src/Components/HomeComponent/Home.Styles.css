@@ -1,0 +1,10 @@
+.mainBlock{
+    color: white;
+}
+
+.left{
+    justify-content: start;
+    width: 50%;
+    padding-top: 110px;
+    float: left;
+}

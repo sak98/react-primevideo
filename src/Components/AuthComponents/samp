@@ -1,41 +1,35 @@
-import React, { Component, Fragment } from 'react';	
-import "./Auth.Styles.css";	
-import {Link,withRouter} from "react-router-dom";	
-import firebase from "../../firebase";	
-import {toast} from 'react-toastify';	
-import "react-toastify/dist/ReactToastify.css";
-
-
+import React, { Component, Fragment } from "react";
+import { Link, withRouter } from "react-router-dom";
+import firebase from "../../firebase";
+import { toast } from "react-toastify";
 class PasswordReset extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-        email : "",
-     }
-     this.handleChange = this.handleChange.bind(this);
-     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      email: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(e){
-    this.setState({[e.target.name]:e.target.value});
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
-
-  async handleSubmit(e){
-    let {email} = this.state;
+  async handleSubmit(e) {
+    let { email } = this.state;
     e.preventDefault();
     try {
       await firebase.auth().sendPasswordResetEmail(email);
-      toast.success("Password reset link has been sent to your registered email.");
       this.props.history.push("/login");
+      toast.success(`please verify ${email} and change  password`);
     } catch (err) {
       toast.error(err.message);
       this.props.history.push("/password-reset");
     }
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <Fragment>
-          <Fragment>
         <section className="vh-100 align-items-center justify-content-center d-flex registerComponent">
           <div className=" col-md-3 mx-auto">
             <img src="AV_Logo.png" alt="logo" className="inside_logo my-4" />
@@ -84,9 +78,8 @@ class PasswordReset extends Component {
           </div>
         </section>
       </Fragment>
-      </Fragment>
-     );
+    );
   }
 }
- 
+
 export default withRouter(PasswordReset);

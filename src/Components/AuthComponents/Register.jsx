@@ -16,7 +16,7 @@ class RegisterComponent extends Component {
          }
          this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.passValidate = this.passValidate.bind(this);
+        
     }
 
     handleChange(e){
@@ -24,18 +24,15 @@ class RegisterComponent extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    passValidate(){
-      
-    
-      
-    }
     
     async handleSubmit(e){
         
       if(this.state.password != this.state.confirm_password){
+        
         let warning = "Passwords do not match Please verify"
-        toast.warning(warning);
+        toast.error(warning);
         this.props.history.push('/');
+        
       }
       else{
         try{

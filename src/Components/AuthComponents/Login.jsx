@@ -8,6 +8,7 @@ class LoginComponent extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            username : "",
             email : "",
             password : "",
          }
@@ -38,8 +39,10 @@ class LoginComponent extends Component {
             toast.error(err.message);
         }
         this.state = { 
+            username : "",
             email : "",
             password : "",
+
          }
     }
 

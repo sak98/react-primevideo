@@ -27,14 +27,8 @@ class RegisterComponent extends Component {
     
     async handleSubmit(e){
         
-      if(this.state.password != this.state.confirm_password){
-        
-        let warning = "Passwords do not match Please verify"
-        toast.error(warning);
-        this.props.history.push('/');
-        
-      }
-      else{
+
+
         try{
           e.preventDefault();
         let{email,password,username} = this.state;
@@ -45,11 +39,10 @@ class RegisterComponent extends Component {
           await userData.user.updateProfile({
             displayName : username,
             photoURL : `https://en.gravatar.com/avatar/${md5(email)})?q=identicon`,
-            uid : userData.user.uid,
-            registrationDate : new Date().toString(),
+        
                     })
 
-            await firebase.database().ref("/users"+userData.user.uid).set({
+            await firebase.database().ref.child("/users"+userData.user.uid).set({
                 username : userData.user.displayName,
                 photoURL : userData.user.photoURL,
                 uid : userData.user.uid,
@@ -63,12 +56,13 @@ class RegisterComponent extends Component {
               confirm_password : "",
             });
 
-            this.props.history.push('/login');
+      
+
         }catch(err){
             toast.error(err.message);
 
         }
-      }
+      
 
     }
 

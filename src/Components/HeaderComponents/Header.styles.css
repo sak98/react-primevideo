@@ -1,8 +1,32 @@
-img{
-    width : 100px;
-    height : 30px;
-    background-color:233D53 ;
+#root .bg-light {
+    background-color: #0f171e !important;
+    padding: 16px 45px;
 }
+
+.navbar-brand img {
+    width: 120px;
+}
+
 .navbar-default{
     background-image: linear-gradient(to right,#0077C1,#233D53);
 }
+
+.nav-link {
+    color: #fff;
+    position: relative;
+}
+
+.profile_img {
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    padding: 10px;
+    display: block;
+    line-height: 30px;
+    position: absolute;
+    left: 0px;
+    top: -5px;
+
+}
+
+   
